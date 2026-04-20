@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/static-components */
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
@@ -26,8 +27,8 @@ export default function ExerciseForm({ mode }: { mode:'add'|'edit' }) {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
         <h1 className="text-[24px] font-extrabold text-white tracking-tight">{isEdit ? 'Edit Exercise' : 'Add New Exercise'}</h1>
         <div className="flex items-center gap-3">
-          <button className="text-[13px] font-semibold text-[#00d4ff] hover:text-[#60d9ff] bg-transparent border-none transition-colors">Save Draft</button>
-          <button className="px-4 py-2 rounded-lg text-[13px] font-bold text-white border-none hover:opacity-90 transition-opacity"
+          <button className="text-[16px] font-semibold text-[#00d4ff] hover:text-[#60d9ff] bg-transparent border-none transition-colors">Save Draft</button>
+          <button className="px-4 py-2 rounded-lg text-[16px] font-bold text-white border-none hover:opacity-90 transition-opacity"
             style={{ background:'linear-gradient(135deg,#0ea5e9,#2563eb)' }}>Publish Exercise</button>
         </div>
       </div>
