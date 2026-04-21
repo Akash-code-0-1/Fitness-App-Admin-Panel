@@ -2,6 +2,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function SignInPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -10,10 +11,10 @@ export default function SignInPage() {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center p-5 bg-[var(--bg-primary)] bg-cover bg-center"
+      className="min-h-screen flex items-center justify-center p-5 bg-bg-secondary bg-cover bg-center"
       style={{ backgroundImage: "url('/signinBgImg.png')" }}
     >
-      <div className="relative z-10 w-[685px] h-[658px] flex items-center justify-center gap-20 px-16 py-32 rounded-[24px] border border-[var(--border)] bg-[var(--bg-card)] shadow-[1px_3px_10px_-3px_var(--boxShadowClorBlue)]">
+      <div className="relative z-10 w-[685px] h-[658px] flex items-center justify-center gap-20 px-16 py-32 rounded-[24px] border border-[var(--border)] bg-bg-secondary font-inter shadow-[1px_3px_10px_-3px_var(--boxShadowClorBlue)]">
 
         {/* Left - Logo */}
         <div className="flex-1 flex flex-col items-center justify-center">
@@ -100,6 +101,9 @@ export default function SignInPage() {
           </div>
 
           {/* Button */}
+          <Link 
+          href="/dashboard">
+
           <button
             className="w-full mt-auto flex items-center justify-center gap-2 py-3.5 text-[15px] font-bold text-white rounded-xl bg-[var(--accent-blue)] shadow-[0_4px_15px_rgba(37,99,235,0.4)]"
           >
@@ -110,6 +114,7 @@ export default function SignInPage() {
               className="w-[18px] h-[18px]"
             />
           </button>
+          </Link>
         </div>
       </div>
     </div>
