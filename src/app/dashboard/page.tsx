@@ -263,68 +263,73 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          {/* Table Section */}
+{/* Table Section */}
           <div className="rounded-[16px] overflow-hidden border border-[#1a2640] bg-[#0d1525]/40">
             <div className="px-6 py-4 border-b border-[#1a2640] bg-[#0F172A]/50">
               <h4 className="text-[14px] font-bold leading-[20px] tracking-[0.7px] uppercase align-middle text-white">
                 Engagement Data Detail
               </h4>
             </div>
-            <table className="w-full border-collapse bg-[#1c2533]">
-              <thead>
-                <tr className="border-b border-gray-700">
-                  {[
-                    "Date",
-                    "Total Sessions",
-                    "Active Sessions",
-                    "Avg. Completion %",
-                  ].map((h) => (
-                    <th
-                      key={h}
-                      className="text-left px-6 py-4 text-[11px] uppercase tracking-widest text-[#5a7090] font-bold"
-                    >
-                      {h}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#1a2640]">
-                {[
-                  { date: "14 Oct 2024", total: "152", active: "128", pct: 94 },
-                  { date: "13 Oct 2024", total: "114", active: "98", pct: 88 },
-                  { date: "12 Oct 2024", total: "108", active: "84", pct: 82 },
-                ].map((row, idx) => (
-                  <tr
-                    key={idx}
-                    className="hover:bg-white/[0.02] transition-colors border-b border-gray-700"
-                  >
-                    <td className="px-6 py-5 text-[14px] text-[#8899bb] border-b border-gray-700">
-                      {row.date}
-                    </td>
-                    <td className="px-6 py-5 text-[15px] text-white font-bold tracking-tight border-b border-gray-700">
-                      {row.total}
-                    </td>
-                    <td className="px-6 py-5 text-[14px] text-[#8899bb] border-b border-gray-700">
-                      {row.active}
-                    </td>
-                    <td className="px-6 py-5 border-b border-gray-700">
-                      <div className="flex items-center gap-4">
-                        <div className="h-1.5 w-32 rounded-full bg-[#1a2640]">
-                          <div
-                            className="h-full rounded-full bg-[#10b981] shadow-[0_0_10px_rgba(16,185,129,0.4)]"
-                            style={{ width: `${row.pct}%` }}
-                          />
-                        </div>
-                        <span className="text-[14px] font-bold text-[#10b981]">
-                          {row.pct}%
-                        </span>
-                      </div>
-                    </td>
+            
+            {/* Added overflow-x-auto for responsiveness */}
+            <div className="w-full overflow-x-auto scrollbar-thin scrollbar-thumb-[#1a2640] scrollbar-track-transparent">
+              <table className="w-full border-collapse bg-[#1c2533] min-w-[600px]">
+                <thead>
+                  <tr className="border-b border-gray-700">
+                    {[
+                      "Date",
+                      "Total Sessions",
+                      "Active Sessions",
+                      "Avg. Completion %",
+                    ].map((h) => (
+                      <th
+                        key={h}
+                        className="text-left px-6 py-4 text-[11px] uppercase tracking-widest text-[#5a7090] font-bold whitespace-nowrap"
+                      >
+                        {h}
+                      </th>
+                    ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y divide-[#1a2640]">
+                  {[
+                    { date: "14 Oct 2024", total: "152", active: "128", pct: 94 },
+                    { date: "13 Oct 2024", total: "114", active: "98", pct: 88 },
+                    { date: "12 Oct 2024", total: "108", active: "84", pct: 82 },
+                  ].map((row, idx) => (
+                    <tr
+                      key={idx}
+                      className="hover:bg-white/[0.02] transition-colors border-b border-gray-700"
+                    >
+                      <td className="px-6 py-5 text-[14px] text-[#8899bb] border-b border-gray-700 whitespace-nowrap">
+                        {row.date}
+                      </td>
+                      <td className="px-6 py-5 text-[15px] text-white font-bold tracking-tight border-b border-gray-700 whitespace-nowrap">
+                        {row.total}
+                      </td>
+                      <td className="px-6 py-5 text-[14px] text-[#8899bb] border-b border-gray-700 whitespace-nowrap">
+                        {row.active}
+                      </td>
+                      <td className="px-6 py-5 border-b border-gray-700 whitespace-nowrap">
+                        <div className="flex items-center gap-4">
+                          <div className="h-1.5 w-32 rounded-full bg-[#1a2640] flex-shrink-0">
+                            <div
+                              className="h-full rounded-full bg-[#10b981] shadow-[0_0_10px_rgba(16,185,129,0.4)]"
+                              style={{ width: `${row.pct}%` }}
+                            />
+                          </div>
+                          <span className="text-[14px] font-bold text-[#10b981]">
+                            {row.pct}%
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
+
         </div>
 
         <div className="w-full">

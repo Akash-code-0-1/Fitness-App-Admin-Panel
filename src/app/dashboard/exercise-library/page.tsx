@@ -94,7 +94,7 @@ export default function ExerciseLibraryPage() {
           </div>
           <Link
             href="/dashboard/exercise-library/add"
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-[16px] font-bold text-white no-underline flex-shrink-0 hover:opacity-90 transition-opacity"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-[16px] font-bold text-white no-underline transition-opacity hover:opacity-90 justify-center"
             style={{
               background: "linear-gradient(135deg,#0ea5e9,#2563eb)",
               boxShadow: "0 4px 16px rgba(37,99,235,0.35)",

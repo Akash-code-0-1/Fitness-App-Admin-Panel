@@ -129,7 +129,7 @@ export default function ProtocolManagerPage() {
           </div>
           <Link
             href="/dashboard/protocol-manager/create"
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-[16px] font-bold text-white no-underline flex-shrink-0 transition-opacity hover:opacity-90"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-[16px] font-bold text-white no-underline transition-opacity hover:opacity-90 justify-center"
             style={{
               background: "linear-gradient(135deg,#0ea5e9,#2563eb)",
               boxShadow: "0 4px 16px rgba(37,99,235,0.35)",
@@ -191,8 +191,8 @@ export default function ProtocolManagerPage() {
         </div>
 
         {/* Table card */}
-        <div className="rounded-xl border border-[#1a2640] overflow-hidden bg-bg-secondary">
-          <div className="px-5 py-4 border-b border-[#1a2640]">
+        <div className="rounded-xl  overflow-hidden bg-bg-secondary">
+          <div className="px-5 py-4 ">
             <h3 className="text-[16px] font-bold text-white">
               Manage Protocols
             </h3>
@@ -200,7 +200,7 @@ export default function ProtocolManagerPage() {
           <div className="overflow-x-auto">
             <table className="w-full min-w-[600px]">
               <thead>
-                <tr className="border-b border-[#1a2640]">
+                <tr className="bg-[#0F172A]">
                   <th className="text-left px-5 py-3 text-[10px] uppercase tracking-[0.09em] text-[#64748B] font-semibold w-16">
                     #
                   </th>
@@ -222,7 +222,7 @@ export default function ProtocolManagerPage() {
                 {items.map((p) => (
                   <tr
                     key={p.id}
-                    className="border-b border-[#1a2640] last:border-0 hover:bg-[#0F172A] transition-colors"
+                    className=" hover:bg-[#0F172A] transition-colors"
                   >
                     <td className="px-5 py-3.5 text-[13px] text-[#3d5070] font-mono">
                       {p.id}

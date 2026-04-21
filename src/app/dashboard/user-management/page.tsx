@@ -3,13 +3,11 @@
 import Link from "next/link";
 import StatusBar from "@/components/StatusBar";
 import {
-  Edit2,
   ChevronLeft,
   ChevronRight,
   Filter,
   Calendar,
   ChevronDown,
-  Search,
 } from "lucide-react";
 
 const users = [

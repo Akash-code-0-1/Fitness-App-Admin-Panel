@@ -29,7 +29,6 @@
   --bg-card: #1C2533;
 }
 
-/* Remove the default white calendar icon in Chrome, Edge, and Safari */
 input[type="date"]::-webkit-calendar-picker-indicator {
     background: transparent;
     bottom: 0;
@@ -41,7 +40,5 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     right: 0;
     top: 0;
     width: auto;
-    /* This makes the default icon invisible but keeps the whole 
-       input area clickable to open the date picker */
 }
 
