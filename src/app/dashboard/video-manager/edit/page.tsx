@@ -1,113 +1,165 @@
-'use client';
-import { useState } from 'react';
-import Link from 'next/link';
-import { Play, SkipBack, SkipForward, Volume2, Trash2, Upload, FileText } from 'lucide-react';
+/* eslint-disable @next/next/no-img-element */
+"use client";
+
+import { useState } from "react";
+
+import Link from "next/link";
+
+import { Volume2, FileText, X } from "lucide-react";
 
 export default function EditVideoPage() {
-  const [playing, setPlaying] = useState(false);
-
   return (
-    <div className="fade-in flex min-h-[calc(100vh-60px)] flex-col lg:flex-row">
-      {/* Left — blurred context list */}
-      <div className="flex-1 p-6 opacity-20 pointer-events-none select-none hidden lg:block overflow-hidden">
-        <h2 className="text-[20px] font-bold text-white mb-1">Video Manager</h2>
-        <p className="text-[12px] text-[#8899bb] mb-5">Review and manage biomechanical movement assets.</p>
-        <div className="rounded-xl border border-[#1a2640] overflow-hidden" style={{ background:'#0f1729' }}>
-          <div className="px-4 py-2.5 border-b border-[#1a2640]">
-            <div className="grid grid-cols-3 gap-4">
-              <span className="text-[10px] uppercase tracking-[0.09em] text-[#5a7090] font-semibold">Exercise</span>
-              <span className="text-[10px] uppercase tracking-[0.09em] text-[#5a7090] font-semibold">Upload Date</span>
-              <span className="text-[10px] uppercase tracking-[0.09em] text-[#5a7090] font-semibold">Status</span>
-            </div>
+    <div className="relative min-h-screen w-full bg-[#080C14] overflow-hidden">
+      <div className="p-10 opacity-40 pointer-events-none select-none">
+        <h2 className="text-[26px] font-black text-white mb-1 tracking-tight">
+          Video Manager
+        </h2>
+
+        <p className="text-[14px] text-[#94A3B8] mb-8">
+          Review and manage biomechanical movement assets.
+        </p>
+
+        <div className="rounded-2xl border border-[#1a2640] overflow-hidden bg-[#0F172A] h-[80vh]">
+          <div className="p-8 space-y-4">
+            {[...Array(10)].map((_, i) => (
+              <div
+                key={i}
+                className="h-12 w-full bg-[#1c2533] rounded-xl animate-pulse"
+              />
+            ))}
           </div>
-          {['Supine Pelvic Clocks','Thoracic Extension','Long-Lever Hamstring Bridge','Long-Lever Hamstring Bridge','Long-Lever Hamstring Bridge','Long-Lever Hamstring Bridge','Long-Lever Hamstring Bridge','Long-Lever Hamstring Bridge'].map((n,i) => (
-            <div key={i} className="grid grid-cols-3 gap-4 px-4 py-3 border-b border-[#1a2640] last:border-0">
-              <span className="text-[13px] text-white font-semibold truncate">{n}</span>
-              <span className="text-[12px] text-[#8899bb]">10/30/2025</span>
-              <span className="text-[12px] text-[#10b981]">Uploaded</span>
-            </div>
-          ))}
         </div>
       </div>
 
-      {/* Right — Edit panel */}
-      <div className="w-full lg:w-[450px] bg-[#0b1120] border-t lg:border-t-0 lg:border-l border-[#1a2640] p-6 overflow-y-auto flex-shrink-0">
-        <div className="flex items-center gap-1.5 text-[11px] uppercase tracking-[0.09em] text-[#3d5070] mb-1.5">
-          <Link href="/dashboard/video-manager" className="hover:text-[#8899bb] transition-colors text-[#3d5070] no-underline">Video Manager</Link>
-          <span>›</span>
-          <span className="text-[#00d4ff]">Edit Video</span>
-        </div>
-        <h2 className="text-[22px] font-extrabold text-white mb-5 tracking-tight">Edit Video</h2>
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/40 backdrop-blur-md">
+        <div className="w-full max-w-[500px] bg-[#0B1120] rounded-[32px] p-8 shadow-[0_30px_100px_rgba(0,0,0,0.8)] border border-white/5 relative flex flex-col overflow-hidden">
+          <Link
+            href="/dashboard/video-manager"
+            className="absolute top-8 right-8 text-[#475569] hover:text-white transition-colors"
+          >
+            <X size={20} />
+          </Link>
 
-        {/* Video Player */}
-        <div className="rounded-xl overflow-hidden mb-4 relative" style={{ aspectRatio:'16/9', background:'linear-gradient(135deg,#0d1f2d,#091525)' }}>
-          {/* Placeholder frame */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center opacity-20">
-              <div className="text-6xl mb-2">🏃</div>
-            </div>
+          <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.15em] text-[#3d5070] mb-2 font-bold">
+            <span className="text-[#475569]">Video Manager</span>
+
+            <span>›</span>
+
+            <span className="text-[#2DD4BF]">Edit Video</span>
           </div>
 
-          {/* Video controls */}
-          <div className="absolute bottom-0 inset-x-0 p-3" style={{ background:'linear-gradient(to top, rgba(0,0,0,0.9), transparent)' }}>
-            {/* Progress */}
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-[11px] text-white/80 font-mono">02:25</span>
-              <div className="flex-1 h-1 rounded-full cursor-pointer" style={{ background:'rgba(255,255,255,0.2)' }}>
-                <div className="h-full w-[46%] rounded-full" style={{ background:'linear-gradient(to right,#00d4ff,#2563eb)' }} />
+          <h2 className="text-[28px] font-black text-white mb-6 tracking-tighter">
+            Edit Video
+          </h2>
+
+          <div
+            className="rounded-[24px] overflow-hidden mb-6 relative bg-black shadow-2xl border border-white/5 shrink-0"
+            style={{ aspectRatio: "16/10" }}
+          >
+            <img
+              src="/nici.png"
+              alt="Exercise"
+              className="absolute inset-0 w-full h-full object-cover opacity-80"
+            />
+
+            <div className="absolute bottom-0 inset-x-0 p-5 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-[10px] text-white/90 font-bold">
+                  02:25
+                </span>
+
+                <div className="flex-1 h-[3px] rounded-full bg-white/20 relative">
+                  <div className="absolute h-full w-[80%] rounded-full bg-gradient-to-r from-[#0ea5e9] to-[#2DD4BF] shadow-[0_0_10px_#2DD4BF]" />
+                </div>
+
+                <span className="text-[10px] text-white/90 font-bold">
+                  04:50
+                </span>
               </div>
-              <span className="text-[11px] text-white/80 font-mono">04:50</span>
+
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <img
+                    src="/icons/PlayVideo.svg"
+                    alt="play"
+                    className="w-8 h-8 cursor-pointer"
+                  />
+
+                  <img
+                    src="/icons/Forward.svg"
+                    alt="forward"
+                    className="w-8 h-8 cursor-pointer"
+                  />
+
+                  <img
+                    src="/icons/Backward.svg"
+                    alt="backward"
+                    className="w-8 h-8 cursor-pointer"
+                  />
+                </div>
+
+                <Volume2
+                  size={30}
+                  className="text-[#2DD4BF] opacity-80 cursor-pointer"
+                />
+              </div>
             </div>
-            {/* Buttons */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <button onClick={() => setPlaying(!playing)}
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-white border border-white/60 hover:border-white bg-transparent transition-colors">
-                  {playing ? <span className="text-[10px]">⏸</span> : <Play size={12} fill="white" />}
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 mb-6 shrink-0">
+            <button className="flex items-center justify-center py-3.5 rounded-2xl text-[14px] font-black text-white bg-[#A32D2D] hover:bg-red-700 transition-all shadow-lg">
+              Delete
+            </button>
+
+            <button className="flex items-center justify-center py-3.5 rounded-2xl text-[14px] font-black text-white bg-[#3B82F6] hover:bg-blue-600 transition-all shadow-lg">
+              Re-Upload
+            </button>
+          </div>
+
+          <div className="rounded-[24px] bg-[#1C2025] p-6 flex-1 min-h-0">
+            <div className="flex items-center gap-2.5 mb-5">
+              <div className="p-1.5 bg-[#2DD4BF]/10 rounded-md">
+                <FileText size={16} className="text-[#2DD4BF]" />
+              </div>
+
+              <span className="text-[12px] font-black uppercase tracking-[0.2em] text-[#94A3B8]">
+                Metadata & Tagging
+              </span>
+            </div>
+
+            <div className="space-y-5">
+              <div>
+                <label className="text-[10px] uppercase tracking-[0.15em] text-[#475569] font-black mb-1.5 block">
+                  Exercise ID
+                </label>
+
+                <input
+                  defaultValue="EX-260009"
+                  className="w-full px-5 py-3.5 text-[14px] bg-[#0F141F] border border-white/5 rounded-2xl text-[#94A3B8] font-bold outline-none focus:border-[#2DD4BF]/50"
+                />
+              </div>
+
+              <div>
+                <label className="text-[10px] uppercase tracking-[0.15em] text-[#475569] font-black mb-1.5 block">
+                  Exercise Name
+                </label>
+
+                <input
+                  defaultValue="Quadruped Thoracic Rotation"
+                  className="w-full px-5 py-3.5 text-[14px] bg-[#0F141F] border border-white/5 rounded-2xl text-[#94A3B8] font-bold outline-none focus:border-[#2DD4BF]/50"
+                />
+              </div>
+
+              <div className="flex items-center justify-between pt-2">
+                <button className="text-[14px] font-black text-[#3B82F6] hover:text-blue-400 px-4">
+                  Save Draft
                 </button>
-                <button className="w-7 h-7 rounded-full flex items-center justify-center text-white/70 border border-white/30 hover:border-white/60 bg-transparent transition-colors">
-                  <SkipBack size={11} />
-                </button>
-                <button className="w-7 h-7 rounded-full flex items-center justify-center text-white/70 border border-white/30 hover:border-white/60 bg-transparent transition-colors">
-                  <SkipForward size={11} />
+
+                <button className="px-8 py-3.5 rounded-2xl text-[14px] font-black text-white bg-[#3B82F6] shadow-blue-500/20 shadow-lg">
+                  Publish Exercise
                 </button>
               </div>
-              <button className="text-white/60 hover:text-white bg-transparent border-none transition-colors">
-                <Volume2 size={16} />
-              </button>
             </div>
-          </div>
-        </div>
-
-        {/* Delete / Re-upload */}
-        <div className="grid grid-cols-2 gap-3 mb-5">
-          <button className="flex items-center justify-center gap-2 py-2.5 rounded-lg text-[13px] font-bold text-white bg-[#dc2626] hover:bg-[#b91c1c] border-none transition-colors">
-            <Trash2 size={14} /> Delete
-          </button>
-          <button className="flex items-center justify-center gap-2 py-2.5 rounded-lg text-[13px] font-bold text-white border-none hover:opacity-90 transition-opacity"
-            style={{ background:'linear-gradient(135deg,#0ea5e9,#2563eb)' }}>
-            <Upload size={14} /> Re-Upload
-          </button>
-        </div>
-
-        {/* Metadata */}
-        <div className="rounded-xl border border-[#1a2640] p-4" style={{ background:'#0f1729' }}>
-          <div className="flex items-center gap-2 mb-4">
-            <FileText size={13} className="text-[#00d4ff]" />
-            <span className="text-[11px] font-black uppercase tracking-[0.12em] text-[#00d4ff]">Metadata &amp; Tagging</span>
-          </div>
-          <div className="mb-3">
-            <p className="text-[10px] uppercase tracking-[0.09em] text-[#5a7090] font-semibold mb-1.5">Exercise ID</p>
-            <input defaultValue="EX-260009" className="w-full px-3 py-2.5 text-[13px] bg-[#0d1525] border border-[#1a2640] rounded-lg text-white font-mono focus:border-[#00d4ff] outline-none" />
-          </div>
-          <div className="mb-5">
-            <p className="text-[10px] uppercase tracking-[0.09em] text-[#5a7090] font-semibold mb-1.5">Exercise Name</p>
-            <input defaultValue="Quadruped Thoracic Rotation" className="w-full px-3 py-2.5 text-[13px] bg-[#0d1525] border border-[#1a2640] rounded-lg text-white focus:border-[#00d4ff] outline-none" />
-          </div>
-          <div className="flex items-center justify-between">
-            <button className="text-[13px] font-semibold text-[#00d4ff] hover:text-[#60d9ff] bg-transparent border-none transition-colors">Save Draft</button>
-            <button className="px-4 py-2 rounded-lg text-[13px] font-bold text-white border-none hover:opacity-90 transition-opacity"
-              style={{ background:'linear-gradient(135deg,#0ea5e9,#2563eb)' }}>Publish Exercise</button>
           </div>
         </div>
       </div>
